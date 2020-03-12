@@ -44,7 +44,7 @@ AuthorSchema.virtual("date_of_birth_formatted").get(function() {
 
 AuthorSchema.virtual("date_of_death_formatted").get(function() {
   return this.date_of_death
-    ? moment(this.date_of_death).format("YYYY-MM-DD")
+    ? moment(this.date_of_death).format("MMMM Do, YYYY")
     : "";
 });
 
