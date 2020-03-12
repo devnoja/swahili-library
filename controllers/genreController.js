@@ -9,13 +9,13 @@ var async = require("async");
 exports.genre_list = function(req, res) {
   Genre.find()
     .sort([["name", "ascending"]])
-    .exec(function(err, list_genres) {
+    .exec(function(err, genres) {
       if (err) {
         return err;
       }
       res.render("genre_list", {
-        title: "Genre List",
-        genre_list: list_genres
+        title: "Genres",
+        genres: genres
       });
     });
 };
