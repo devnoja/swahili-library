@@ -13,7 +13,8 @@ exports.bookinstance_list = function(req, res) {
         return next(err);
       }
       res.render("bookinstance_list", {
-        title: "Book Instance List",
+        title: "Book copies",
+        banner: "Copies in our library",
         bookinstances: bookinstances
       });
     });
