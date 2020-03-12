@@ -42,15 +42,15 @@ exports.index = function(req, res) {
 exports.book_list = function(req, res) {
   Book.find({}, "title author")
     .populate("author")
-    .exec(function(err, list_books) {
+    .exec(function(err, books) {
       if (err) {
         return next(err);
       }
       //Successful, so render
       res.render("book_list", {
-        title: "Books available",
+        title: "Books",
         banner: "Books in our library",
-        book_list: list_books
+        books: books
       });
     });
 };
