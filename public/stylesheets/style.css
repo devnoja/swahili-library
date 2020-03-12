@@ -1,3 +1,23 @@
+@import url("https://fonts.googleapis.com/css?family=Caladea&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Caladea", sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  color: #a1f0e9;
+}
+
 .sidebar-nav {
   margin-top: 20px;
   padding: 0;
