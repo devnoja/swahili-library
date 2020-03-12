@@ -6,15 +6,15 @@ var Book = require("../models/book");
 
 // Display list of all BookInstances.
 exports.bookinstance_list = function(req, res) {
-  BookInstance.find({})
+  BookInstance.find()
     .populate("book")
-    .exec(function(err, list_bookinstances) {
+    .exec(function(err, bookinstances) {
       if (err) {
         return next(err);
       }
       res.render("bookinstance_list", {
         title: "Book Instance List",
-        bookinstance_list: list_bookinstances
+        bookinstances: bookinstances
       });
     });
 };
