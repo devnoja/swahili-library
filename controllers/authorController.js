@@ -19,7 +19,7 @@ exports.author_list = function(req, res) {
     });
 };
 
-/// Display detail page for a specific Author.
+// Display detail page for a specific Author.
 exports.author_detail = function(req, res, next) {
   async.parallel(
     {
