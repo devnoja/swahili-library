@@ -1,27 +1,27 @@
-var createError = require("http-errors");
-var express = require("express");
-var path = require("path");
-var cookieParser = require("cookie-parser");
-var logger = require("morgan");
+const createError = require("http-errors");
+const express = require("express");
+const path = require("path");
+const cookieParser = require("cookie-parser");
+const logger = require("morgan");
 
-var compression = require('compression');
-var helmet = require('helmet');
+const compression = require("compression");
+const helmet = require("helmet");
 
-var indexRouter = require("./routes/index");
-var usersRouter = require("./routes/users");
-var catalogRouter = require("./routes/catalog");
+const indexRouter = require("./routes/index");
+const usersRouter = require("./routes/users");
+const catalogRouter = require("./routes/catalog");
 
-var app = express();
+const app = express();
 
 //Set up mongoose connection
-var mongoose = require("mongoose");
-var dev_db_url =
+const mongoose = require("mongoose");
+const dev_db_url =
   "mongodb+srv://noja:UUnpgydQP2bCtXJ@cluster0-9geny.mongodb.net/local_library?retryWrites=true&w=majority";
 
-var mongoDB = process.env.MONGODB_URI || dev_db_url;  
+const mongoDB = process.env.MONGODB_URI || dev_db_url;
 
-mongoose.connect(mongoDB, { useNewUrlParser: true });
-var db = mongoose.connection;
+mongoose.connect(mongoDB, { useNewUrlParser: true,  useUnifiedTopology: true });
+const db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
 // view engine setup
