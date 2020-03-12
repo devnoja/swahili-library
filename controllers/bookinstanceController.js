@@ -29,12 +29,10 @@ exports.bookinstance_detail = function(req, res, next) {
         return next(err);
       }
       if (bookinstance == null) {
-        // No results.
         var err = new Error("Book copy not found");
         err.status = 404;
         return next(err);
       }
-      // Successful, so render.
       res.render("bookinstance_detail", {
         title: "Copy: " + bookinstance.book.title,
         bookinstance: bookinstance
