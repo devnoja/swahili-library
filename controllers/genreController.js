@@ -42,7 +42,7 @@ exports.genre_detail = function(req, res, next) {
         return next(err);
       }
       res.render("genre_detail", {
-        title: "Genre Detail",
+        title: "Genre detail",
         genre: results.genre,
         genre_books: results.genre_books
       });
