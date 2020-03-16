@@ -96,7 +96,7 @@ exports.bookinstance_create_post = [
         }
         // Successful, so render.
         res.render("bookinstance_form", {
-          title: "Create BookInstance",
+          title: "Create book-instance",
           book_list: books,
           selected_book: bookinstance.book._id,
           errors: errors.array(),
