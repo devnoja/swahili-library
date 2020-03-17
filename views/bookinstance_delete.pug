@@ -1,0 +1,14 @@
+extends layout
+
+block content
+
+    p Do you really want to delete this copy?
+    p #{copy}
+
+    form(method='POST' action='')
+      div.form-group
+        input#copyid.form-control(type='hidden',name='copyid', required='true', value=copy._id )
+        button.btn.btn-primary(type='submit') Delete
+
+
+
