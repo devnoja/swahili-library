@@ -137,7 +137,7 @@ exports.author_delete_get = function(req, res, next) {
       }
       // Successful, so render.
       res.render("author_delete", {
-        title: "Delete Author",
+        title: "Delete author",
         author: results.author,
         author_books: results.authors_books
       });
