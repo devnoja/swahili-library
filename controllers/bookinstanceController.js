@@ -126,7 +126,7 @@ exports.bookinstance_delete_get = function(req, res) {
     if (copy == null) {
       res.redirect("/catalog/bookinstances");
     }
-    // Successful, so render.
+    // Successful
     res.render("bookinstance_delete", {
       title: "Delete copy",
       copy: copy
