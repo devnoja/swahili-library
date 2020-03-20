@@ -1,0 +1,28 @@
+extends layout
+
+block content
+  
+  if copies.length
+  
+    p  Delete the following copies before attempting to delete  book.
+  
+    div(style='margin-top:20px')
+
+      h4 copies
+    
+      each copy in copies
+          p id: #{copy._id}
+          p status: #{copy.status}
+          a(href=copy.url) link to delete
+
+  else
+    p Do you really want to delete this Book?
+    
+    form(method='POST' action='')
+      div.form-group
+        input#bookid.form-control(type='hidden',name='bookid', required='true', value=book._id )
+
+      button.btn.btn-primary(type='submit') Delete
+
+
+  
