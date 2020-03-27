@@ -48,5 +48,18 @@ AuthorSchema.virtual("date_of_death_formatted").get(function() {
     : "";
 });
 
+// Virtual for author's update
+AuthorSchema.virtual("date_of_birth_update").get(function() {
+  return this.date_of_birth
+    ? moment(this.date_of_birth).format("YYYY-MM-DD")
+    : "";
+});
+
+AuthorSchema.virtual("date_of_death_update").get(function() {
+  return this.date_of_death
+    ? moment(this.date_of_death).format("YYYY-MM-DD")
+    : "";
+});
+
 //Export model
 module.exports = mongoose.model("Author", AuthorSchema);
