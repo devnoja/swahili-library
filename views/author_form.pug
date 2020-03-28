@@ -14,7 +14,7 @@ block content
       input#date_of_birth.form-control(type='date' name='date_of_birth' value=(undefined===author ? '' : author.date_of_birth_update) )
       label(for='date_of_death') Date of death:
       input#date_of_death.form-control(type='date' name='date_of_death' value=(undefined===author ? '' : author.date_of_death_update) )
-    button.btn.btn-primary(type='submit') Submit
+    button.btn.btn-primary(type='submit') submit
   if errors 
     ul
       for error in errors

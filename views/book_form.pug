@@ -1,7 +1,7 @@
 extends layout
 
 block content
-  p Fill the information(s) below to add new book:
+  p Fill the information(s) below:
 
   form(method='POST' action='')
     div.form-group
@@ -35,7 +35,7 @@ block content
           div(style='display: inline; padding-right:10px;')
             input.checkbox-input(type='checkbox', name='genre', id=genre._id, value=genre._id, checked=genre.checked )
             label(for=genre._id) #{genre.name}
-    button.btn.btn-primary(type='submit') Add Book
+    button.btn.btn-primary(type='submit') submit
 
   if errors 
     ul

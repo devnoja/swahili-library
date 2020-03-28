@@ -1,10 +1,10 @@
 const { body, validationResult } = require("express-validator/check");
 const { sanitizeBody } = require("express-validator/filter");
 
-let Author = require("../models/author");
-var Book = require("../models/book");
+const Author = require("../models/author");
+const Book = require("../models/book");
 
-var async = require("async");
+const async = require("async");
 
 // Display list of all Authors.
 exports.author_list = function(req, res) {
@@ -35,13 +35,13 @@ exports.author_detail = function(req, res, next) {
         return next(err);
       }
       if (results.author == null) {
-        var err = new Error("Author not found");
+        const err = new Error("Author not found");
         err.status = 404;
         return next(err);
       }
       // Successful, so render.
       res.render("author_detail", {
-        title: "Author information",
+        title: "Author Details",
         author: results.author,
         author_books: results.authors_books
       });
@@ -99,7 +99,7 @@ exports.author_create_post = [
       // Data from form is valid.
 
       // Create an Author object with escaped and trimmed data.
-      var author = new Author({
+      const author = new Author({
         first_name: req.body.first_name,
         family_name: req.body.family_name,
         date_of_birth: req.body.date_of_birth,

@@ -1,7 +1,7 @@
 extends layout
 
 block content
-  h1 #{bookinstance.book.title}
+  h2 #{bookinstance.book.title}
   
   p  Imprint: #{bookinstance.imprint}
 
@@ -16,8 +16,7 @@ block content
   if bookinstance.status!='Available'
     p  Due back: #{bookinstance.due_back_formatted}
 
-  hr
   p 
-    a(href=bookinstance.url+'/delete') Delete copy
-  p 
-    a(href=bookinstance.url+'/update') Update copy
+    a.btn.btn-danger.mr-2(href=bookinstance.url+'/delete') delete 
+    |
+    a.btn.btn-info(href=bookinstance.url+'/update') update 

@@ -1,7 +1,7 @@
 extends layout
 
 block content
-  p Fill the information(s) below to add a copy of book:
+  p Fill the information(s) below:
 
   form(method='POST' action='')
     div.form-group
@@ -29,7 +29,7 @@ block content
         option(value='Loaned') Loaned
         option(value='Reserved') Reserved
 
-    button.btn.btn-primary(type='submit') Add Copy
+    button.btn.btn-primary(type='submit') submit
 
   if errors 
     ul

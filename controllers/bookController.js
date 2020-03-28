@@ -181,7 +181,7 @@ exports.book_create_post = [
             }
           }
           res.render("book_form", {
-            title: "Create book",
+            title: "Create Book",
             authors: results.authors,
             genres: results.genres,
             book: book,
@@ -222,7 +222,7 @@ exports.book_delete_get = function(req, res) {
         res.redirect("/catalog/books");
       }
       res.render("book_delete", {
-        title: "Delete book",
+        title: "Delete Book",
         book: results.book,
         copies: results.copies
       });
@@ -247,7 +247,7 @@ exports.book_delete_post = function(req, res) {
       }
       if (results.copies.length > 0) {
         res.render("book_delete", {
-          title: "Delete book",
+          title: "Delete Book",
           book: results.book,
           copies: results.copies
         });
@@ -293,7 +293,7 @@ exports.book_update_get = function(req, res, next) {
         return next(err);
       }
       // Success.
-      // Mark our selected genres as checked.
+      // Mark selected genres as checked.
       for (
         var all_g_iter = 0;
         all_g_iter < results.genres.length;
@@ -366,7 +366,7 @@ exports.book_update_post = [
       summary: req.body.summary,
       isbn: req.body.isbn,
       genre: typeof req.body.genre === "undefined" ? [] : req.body.genre,
-      _id: req.params.id //This is required, or a new ID will be assigned!
+      _id: req.params.id 
     });
 
     if (!errors.isEmpty()) {

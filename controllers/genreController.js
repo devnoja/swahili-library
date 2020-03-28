@@ -42,7 +42,7 @@ exports.genre_detail = function(req, res, next) {
         return next(err);
       }
       res.render("genre_detail", {
-        title: "Genre detail",
+        title: "Genre Details",
         genre: results.genre,
         genre_books: results.genre_books
       });
@@ -52,7 +52,7 @@ exports.genre_detail = function(req, res, next) {
 
 // Display Genre create form on GET.
 exports.genre_create_get = function(req, res, next) {
-  res.render("genre_form", { title: "Create genre" });
+  res.render("genre_form", { title: "Create Genre" });
 };
 
 // Handle Genre create on POST.
@@ -127,7 +127,7 @@ exports.genre_delete_get = function(req, res) {
       }
       // Successful, so render.
       res.render("genre_delete", {
-        title: "Delete genre",
+        title: "Delete Genre",
         genre: results.genre,
         genre_books: results.genre_books
       });
@@ -152,7 +152,7 @@ exports.genre_delete_post = function(req, res) {
       }
       if (results.genre_books.length > 0) {
         res.render("genre_delete", {
-          title: "Delete genre",
+          title: "Delete Genre",
           genre: results.genre,
           genre_books: results.genre_books
         });
@@ -170,12 +170,11 @@ exports.genre_delete_post = function(req, res) {
 };
 
 // Display Genre update form on GET.
-exports.genre_update_get = function(req, res) {
-  res.send("NOT IMPLEMENTED: Genre update GET");
-};
+// exports.genre_update_get = function(req, res) {
+//   res.send("NOT IMPLEMENTED: Genre update GET");
+// };
 
 // Handle Genre update on POST.
-exports.genre_update_post = function(req, res) {
-  res.send("NOT IMPLEMENTED: Genre update POST");
-};
-
+// exports.genre_update_post = function(req, res) {
+//   res.send("NOT IMPLEMENTED: Genre update POST");
+// };

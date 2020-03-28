@@ -15,7 +15,7 @@ exports.bookinstance_list = function(req, res) {
         return next(err);
       }
       res.render("bookinstance_list", {
-        title: "Book copies",
+        title: "Book Copies",
         banner: "Copies in our library",
         bookinstances: bookinstances
       });
@@ -163,7 +163,7 @@ exports.bookinstance_update_get = function(req, res, next) {
       }
       // Successful, so render.
       res.render("bookinstance_form", {
-        title: "Update copy",
+        title: "Update Copy",
         bookinstance: results.copy,
         book_list: results.book
       });
