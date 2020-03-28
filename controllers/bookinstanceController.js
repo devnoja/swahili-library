@@ -1,10 +1,10 @@
 const { body, validationResult } = require("express-validator");
 const { sanitizeBody } = require("express-validator");
 
-var BookInstance = require("../models/bookinstance");
-var Book = require("../models/book");
+const BookInstance = require("../models/bookinstance");
+const Book = require("../models/book");
 
-var async = require("async");
+const async = require("async");
 
 // Display list of all BookInstances.
 exports.bookinstance_list = function(req, res) {
@@ -31,7 +31,7 @@ exports.bookinstance_detail = function(req, res, next) {
         return next(err);
       }
       if (bookinstance == null) {
-        var err = new Error("Book copy not found");
+        const err = new Error("Book copy not found");
         err.status = 404;
         return next(err);
       }
@@ -48,7 +48,7 @@ exports.bookinstance_create_get = function(req, res, next) {
     if (err) {
       return next(err);
     }
-    // Successful, so render.
+    // Successful
     res.render("bookinstance_form", {
       title: "Create BookInstance",
       book_list: books
@@ -83,7 +83,7 @@ exports.bookinstance_create_post = [
     const errors = validationResult(req);
 
     // Create a BookInstance object with escaped and trimmed data.
-    var bookinstance = new BookInstance({
+    const bookinstance = new BookInstance({
       book: req.body.book,
       imprint: req.body.imprint,
       status: req.body.status,
@@ -96,7 +96,7 @@ exports.bookinstance_create_post = [
         if (err) {
           return next(err);
         }
-        // Successful, so render.
+        // Successful
         res.render("bookinstance_form", {
           title: "Create book-instance",
           book_list: books,
@@ -112,7 +112,7 @@ exports.bookinstance_create_post = [
         if (err) {
           return next(err);
         }
-        // Successful - redirect to new record.
+        // Successful
         res.redirect(bookinstance.url);
       });
     }
@@ -130,7 +130,7 @@ exports.bookinstance_delete_get = function(req, res) {
     }
     // Successful
     res.render("bookinstance_delete", {
-      title: "Delete copy",
+      title: "Delete Copy",
       copy: copy
     });
   });
@@ -161,7 +161,7 @@ exports.bookinstance_update_get = function(req, res, next) {
       if (err) {
         return next(err);
       }
-      // Successful, so render.
+      // Successful
       res.render("bookinstance_form", {
         title: "Update Copy",
         bookinstance: results.copy,

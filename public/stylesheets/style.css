@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Caladea&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
 
 * {
   padding: 0;
@@ -7,7 +7,7 @@
 }
 
 body {
-  font-family: "Caladea", sans-serif;
+  font-family: "Lato", sans-serif;
 }
 
 ul {

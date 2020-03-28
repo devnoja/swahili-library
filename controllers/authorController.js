@@ -35,7 +35,7 @@ exports.author_detail = function(req, res, next) {
         return next(err);
       }
       if (results.author == null) {
-        const err = new Error("Author not found");
+        let err = new Error("Author not found");
         err.status = 404;
         return next(err);
       }
@@ -85,7 +85,7 @@ exports.author_create_post = [
   // Process request after validation and sanitization.
   (req, res, next) => {
     // Extract the validation errors from a request.
-    const errors = validationResult(req);
+    var errors = validationResult(req);
 
     if (!errors.isEmpty()) {
       // There are errors. Render form again with sanitized values/errors messages.
@@ -98,7 +98,7 @@ exports.author_create_post = [
     } else {
       // Data from form is valid.
       // Create an Author object with escaped and trimmed data.
-      const author = new Author({
+      var author = new Author({
         first_name: req.body.first_name,
         family_name: req.body.family_name,
         date_of_birth: req.body.date_of_birth,
@@ -225,7 +225,7 @@ exports.author_update_post = [
   // Process request after validation and sanitization.
   (req, res, next) => {
     // Extract the validation errors from a request.
-    const errors = validationResult(req);
+    var errors = validationResult(req);
 
     if (!errors.isEmpty()) {
       // There are errors. Render form again with sanitized values/errors messages.
@@ -239,7 +239,7 @@ exports.author_update_post = [
       // Data from form is valid.
 
       // Create an Author object with escaped and trimmed data.
-      const author = new Author({
+      let author = new Author({
         first_name: req.body.first_name,
         family_name: req.body.family_name,
         date_of_birth: req.body.date_of_birth,

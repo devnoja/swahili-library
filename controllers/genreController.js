@@ -1,9 +1,9 @@
 const validator = require("express-validator");
 
-var Genre = require("../models/genre");
-var Book = require("../models/book");
+const Genre = require("../models/genre");
+const Book = require("../models/book");
 
-var async = require("async");
+const async = require("async");
 
 // Display list of all Genre.
 exports.genre_list = function(req, res) {
@@ -91,14 +91,14 @@ exports.genre_create_post = [
         }
 
         if (found_genre) {
-          // Genre exists, redirect to its detail page.
+          // Genre exists
           res.redirect(found_genre.url);
         } else {
           genre.save(function(err) {
             if (err) {
               return next(err);
             }
-            // Genre saved. Redirect to genre detail page.
+            // Genre saved
             res.redirect(genre.url);
           });
         }
@@ -125,7 +125,7 @@ exports.genre_delete_get = function(req, res) {
       if (results.genre == null) {
         res.redirect("/catalog/genres");
       }
-      // Successful, so render.
+      // Successful
       res.render("genre_delete", {
         title: "Delete Genre",
         genre: results.genre,
@@ -169,12 +169,3 @@ exports.genre_delete_post = function(req, res) {
   );
 };
 
-// Display Genre update form on GET.
-// exports.genre_update_get = function(req, res) {
-//   res.send("NOT IMPLEMENTED: Genre update GET");
-// };
-
-// Handle Genre update on POST.
-// exports.genre_update_post = function(req, res) {
-//   res.send("NOT IMPLEMENTED: Genre update POST");
-// };

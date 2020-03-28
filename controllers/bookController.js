@@ -1,12 +1,12 @@
 const { body, validationResult } = require("express-validator");
 const { sanitizeBody } = require("express-validator");
 
-var Book = require("../models/book");
-var Author = require("../models/author");
-var Genre = require("../models/genre");
-var BookInstance = require("../models/bookinstance");
+const Book = require("../models/book");
+const Author = require("../models/author");
+const Genre = require("../models/genre");
+const BookInstance = require("../models/bookinstance");
 
-var async = require("async");
+const async = require("async");
 
 exports.index = function(req, res) {
   async.parallel(
@@ -46,7 +46,7 @@ exports.book_list = function(req, res) {
       if (err) {
         return next(err);
       }
-      //Successful, so render
+      //Successful
       res.render("book_list", {
         title: "Books",
         banner: "Books in our library",
@@ -75,11 +75,11 @@ exports.book_detail = function(req, res, next) {
       }
       if (results.book == null) {
         // No results.
-        var err = new Error("Book not found");
+        let err = new Error("Book not found");
         err.status = 404;
         return next(err);
       }
-      // Successful, so render.
+      // Successful
       res.render("book_detail", {
         title: results.book.title,
         book: results.book,
@@ -145,7 +145,7 @@ exports.book_create_post = [
   // Process request after validation and sanitization.
   (req, res, next) => {
     // Extract the validation errors from a request.
-    const errors = validationResult(req);
+    let errors = validationResult(req);
 
     // Create a Book object with escaped and trimmed data.
     var book = new Book({
@@ -288,19 +288,19 @@ exports.book_update_get = function(req, res, next) {
       }
       if (results.book == null) {
         // No results.
-        var err = new Error("Book not found");
+        let err = new Error("Book not found");
         err.status = 404;
         return next(err);
       }
       // Success.
       // Mark selected genres as checked.
       for (
-        var all_g_iter = 0;
+        let all_g_iter = 0;
         all_g_iter < results.genres.length;
         all_g_iter++
       ) {
         for (
-          var book_g_iter = 0;
+          let book_g_iter = 0;
           book_g_iter < results.book.genre.length;
           book_g_iter++
         ) {
@@ -357,16 +357,16 @@ exports.book_update_post = [
   // Process request after validation and sanitization.
   (req, res, next) => {
     // Extract the validation errors from a request.
-    const errors = validationResult(req);
+    let errors = validationResult(req);
 
     // Create a Book object with escaped/trimmed data and old id.
-    var book = new Book({
+    let book = new Book({
       title: req.body.title,
       author: req.body.author,
       summary: req.body.summary,
       isbn: req.body.isbn,
       genre: typeof req.body.genre === "undefined" ? [] : req.body.genre,
-      _id: req.params.id 
+      _id: req.params.id
     });
 
     if (!errors.isEmpty()) {
@@ -409,7 +409,7 @@ exports.book_update_post = [
         if (err) {
           return next(err);
         }
-        // Successful - redirect to book detail page.
+        // Successful
         res.redirect(thebook.url);
       });
     }

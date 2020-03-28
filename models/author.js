@@ -1,9 +1,9 @@
-var mongoose = require("mongoose");
-var moment = require("moment");
+const mongoose = require("mongoose");
+const moment = require("moment");
 
-var Schema = mongoose.Schema;
+const Schema = mongoose.Schema;
 
-var AuthorSchema = new Schema({
+let AuthorSchema = new Schema({
   first_name: { type: String, required: true, max: 100 },
   family_name: { type: String, required: true, max: 100 },
   date_of_birth: { type: Date },
@@ -12,7 +12,7 @@ var AuthorSchema = new Schema({
 
 // Virtual for author's full name
 AuthorSchema.virtual("name").get(function() {
-  var fullname = "";
+  let fullname = "";
   if (this.first_name && this.family_name) {
     fullname = this.family_name + ", " + this.first_name;
   }
@@ -22,13 +22,6 @@ AuthorSchema.virtual("name").get(function() {
 
   return fullname;
 });
-
-// Virtual for author's lifespan
-// AuthorSchema
-// .virtual('lifespan')
-// .get(function () {
-//   return (this.date_of_death.getYear() - this.date_of_birth.getYear()).toString();
-// });
 
 // Virtual for author's URL
 AuthorSchema.virtual("url").get(function() {
