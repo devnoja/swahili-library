@@ -1,5 +1,5 @@
-const { body, validationResult } = require("express-validator/check");
-const { sanitizeBody } = require("express-validator/filter");
+const { body, validationResult } = require("express-validator");
+const { sanitizeBody } = require("express-validator");
 
 const Author = require("../models/author");
 const Book = require("../models/book");
@@ -14,7 +14,7 @@ exports.author_list = function(req, res) {
       if (err) {
         return next(err);
       }
-      //Successful, so render
+      //Successful
       res.render("author_list", { title: "Authors", authors: authors });
     });
 };
@@ -39,7 +39,7 @@ exports.author_detail = function(req, res, next) {
         err.status = 404;
         return next(err);
       }
-      // Successful, so render.
+      // Successful
       res.render("author_detail", {
         title: "Author Details",
         author: results.author,
@@ -51,7 +51,7 @@ exports.author_detail = function(req, res, next) {
 
 // Display Author create form on GET.
 exports.author_create_get = function(req, res, next) {
-  res.render("author_form", { title: "Create author" });
+  res.render("author_form", { title: "Create Author" });
 };
 
 // Handle Author create on POST.
@@ -97,7 +97,6 @@ exports.author_create_post = [
       return;
     } else {
       // Data from form is valid.
-
       // Create an Author object with escaped and trimmed data.
       const author = new Author({
         first_name: req.body.first_name,
@@ -109,7 +108,7 @@ exports.author_create_post = [
         if (err) {
           return next(err);
         }
-        // Successful - redirect to new author record.
+        // Successful
         res.redirect(author.url);
       });
     }
@@ -135,7 +134,7 @@ exports.author_delete_get = function(req, res, next) {
         // No results.
         res.redirect("/catalog/authors");
       }
-      // Successful, so render.
+      // Successful
       res.render("author_delete", {
         title: "Delete author",
         author: results.author,
@@ -162,7 +161,7 @@ exports.author_delete_post = function(req, res, next) {
       }
       // Success
       if (results.authors_books.length > 0) {
-        // Author has books. Render in same way as for GET route.
+        // Author has books.
         res.render("author_delete", {
           title: "Delete Author",
           author: results.author,
@@ -170,12 +169,11 @@ exports.author_delete_post = function(req, res, next) {
         });
         return;
       } else {
-        // Author has no books. Delete object and redirect to the list of authors.
+        // Author has no books.
         Author.findByIdAndRemove(req.body.authorid, function deleteAuthor(err) {
           if (err) {
             return next(err);
           }
-          // Success - go to author list
           res.redirect("/catalog/authors");
         });
       }
@@ -241,7 +239,7 @@ exports.author_update_post = [
       // Data from form is valid.
 
       // Create an Author object with escaped and trimmed data.
-      let author = new Author({
+      const author = new Author({
         first_name: req.body.first_name,
         family_name: req.body.family_name,
         date_of_birth: req.body.date_of_birth,
@@ -255,7 +253,7 @@ exports.author_update_post = [
         if (err) {
           return next(err);
         }
-        // Successful - redirect to new author record.
+        // Successful
         res.redirect(author.url);
       });
     }
