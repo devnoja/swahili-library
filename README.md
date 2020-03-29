@@ -1,2 +1,3 @@
-# express-maktaba
-Library website written in Express (Node)
+# swahili-library
+
+An online catalog containing books from famous Tanzanian authors.
