@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
 
+html {
+  height: 100%;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -15,11 +19,46 @@ ul {
 }
 
 a {
-  color: #a1f0e9;
+  color: #222;
+}
+a:hover {
+  color: #bb1919;
 }
 
-.sidebar-nav {
-  margin-top: 20px;
-  padding: 0;
-  list-style: none;
+/* Navbar */
+.navbar {
+  background-color: #7d5e2a;
+}
+.navbar .navbar-brand {
+  color: #fff;
+  font-size: 2.4rem;
+  padding: 0 1.8rem;
+  margin-left: 5.8rem;
+  border-right: 4px solid #fff;
+}
+
+.navbar .navbar-brand:hover {
+  color: #fff;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: #fff;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+  color: #fff;
+}
+.nav-link {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: #fff;
+}
+
+.nav-link:hover {
+  color: #fff;
+  border-bottom: 2px solid #fff;
+}
+
+.bg-dark {
+  background-color: #9dc6a7 !important;
 }
