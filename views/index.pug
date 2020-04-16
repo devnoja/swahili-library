@@ -1,8 +1,9 @@
 extends layout
 
 block content
-  h1= banner
-  p Welcome to Library Swahili, an online catalog containing books from famous Tanzanian authors.
+  div(class="jumbotron jumbotron-fluid")
+      h1 Welcome to Library Swahili
+      p  an online catalog containing books from famous Tanzanian authors.
 
   if error
     p Error getting dynamic content.

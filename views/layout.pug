@@ -15,20 +15,32 @@ html(lang='en')
         span.navbar-toggler-icon
       #navbarNavAltMarkup.collapse.navbar-collapse
         .navbar-nav
-          a.nav-item.nav-link(href='/catalog/books') Books
-          a.nav-item.nav-link(href='/catalog/authors') Authors
-          a.nav-item.nav-link(href='/catalog/genres') Genres
-          a.nav-item.nav-link(href='/catalog/bookinstances') Copies
+          a.nav-item.nav-link(href='/catalog/books') BOOKS
+          a.nav-item.nav-link(href='/catalog/authors') AUTHORS
+          a.nav-item.nav-link(href='/catalog/genres') GENRES
+          a.nav-item.nav-link(href='/catalog/bookinstances') COPIES
   
-    nav.navbar.navbar-expand-lg.navbar-light.bg-dark
-          a.nav-item.nav-link(href='/catalog/author/create') Add Author
-          a.nav-item.nav-link(href='/catalog/book/create') Add Book
-          a.nav-item.nav-link(href='/catalog/genre/create') Add Genres
-          a.nav-item.nav-link(href='/catalog/bookinstance/create') Add Copy    
           
-    div(class='container-fluid  ')
+    div(class='container-fluid')
       div(class='row')
-        div(class='col-sm-12')
+        div(class='col-sm-2')
+          block sidebar
+            ul(class='sidebar-nav')
+              li 
+                a(href='/catalog/author/create')  Add Author
+              li 
+                a(href='/catalog/genre/create') Add Genres
+              li
+                a(href='/catalog/book/create')  Add Book
+              li 
+                a(href='/catalog/bookinstance/create') Add Copy 
+            img(src="https://images-na.ssl-images-amazon.com/images/I/51RjqtYV48L._SX331_BO1,204,203,200_.jpg", alt="")
+                
+            img(src="https://www1.alibris-static.com/kusadikika/isbn/9789976973105_l.jpg", alt="")    
+                
+        div(class='col-sm-10')
           block content
 
-          
+        section(class="footer")
+            p   Library Swahili &copy; 2020    
+

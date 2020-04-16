@@ -12,6 +12,7 @@ html {
 
 body {
   font-family: "Lato", sans-serif;
+  color: #111;
 }
 
 ul {
@@ -19,10 +20,39 @@ ul {
 }
 
 a {
-  color: #222;
-}
-a:hover {
   color: #bb1919;
+}
+
+a:hover {
+  color: #bb19198f;
+}
+img {
+  display: block;
+  width: 100px;
+  height: 140px;
+  margin-bottom: 20px;
+}
+
+.row {
+  margin-top: 10px;
+}
+
+.jumbotron-fluid {
+  padding-right: 0;
+  padding-left: 20px;
+  border-radius: 0;
+  background-color: antiquewhite;
+  font-size: 1.2rem;
+}
+
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding-top: 40px;
+  font-weight: bold;
+  text-align: center;
 }
 
 /* Navbar */
@@ -32,9 +62,8 @@ a:hover {
 .navbar .navbar-brand {
   color: #fff;
   font-size: 2.4rem;
-  padding: 0 1.8rem;
-  margin-left: 5.8rem;
-  border-right: 4px solid #fff;
+  padding-right: 0.8rem;
+  border-right: 3px solid #fff;
 }
 
 .navbar .navbar-brand:hover {
@@ -47,18 +76,20 @@ a:hover {
 
 .navbar-light .navbar-nav .nav-link:hover {
   color: #fff;
-}
-.nav-link {
-  display: block;
-  padding: 0.5rem 1rem;
-  color: #fff;
+  font-weight: bold;
 }
 
-.nav-link:hover {
-  color: #fff;
-  border-bottom: 2px solid #fff;
-}
+@media (max-width: 760px) {
+  img {
+    display: none;
+  }
 
-.bg-dark {
-  background-color: #9dc6a7 !important;
+  .footer {
+    position: relative;
+    padding-top: 40px;
+    margin: auto;
+    bottom: 0;
+    font-weight: bold;
+    text-align: center;
+  }
 }
