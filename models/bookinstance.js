@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
-const moment = require('moment');
+const { DateTime } = require('luxon');
+// const moment = require('moment');
 
 const Schema = mongoose.Schema;
 
@@ -20,7 +21,7 @@ BookInstanceSchema.virtual('url').get(function () {
 });
 
 BookInstanceSchema.virtual('due_back_formatted').get(function () {
-  return moment(this.due_back).format('MMMM Do, YYYY');
+  return DateTime.fromJSDate(this.due_back).toLocaleString(DateTime.DATE_MED);
 });
 
 BookInstanceSchema.virtual('due_back_update').get(function () {

@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { DateTime } = require('luxon');
 const moment = require('moment');
 
 const Schema = mongoose.Schema;
@@ -31,26 +32,26 @@ AuthorSchema.virtual('url').get(function () {
 // virtual for author's dates
 AuthorSchema.virtual('date_of_birth_formatted').get(function () {
   return this.date_of_birth
-    ? moment(this.date_of_birth).format('MMMM Do, YYYY')
+    ? DateTime.fromJSDate(this.date_of_birth).toLocaleString(DateTime.DATE_MED)
     : '';
 });
 
 AuthorSchema.virtual('date_of_death_formatted').get(function () {
   return this.date_of_death
-    ? moment(this.date_of_death).format('MMMM Do, YYYY')
+    ? DateTime.fromJSDate(this.date_of_death).toLocaleString(DateTime.DATE_MED)
     : '';
 });
 
 // virtual for author's update
 AuthorSchema.virtual('date_of_birth_update').get(function () {
   return this.date_of_birth
-    ? moment(this.date_of_birth).format('YYYY-MM-DD')
+    ? DateTime.fromJSDate(this.date_of_birth).toLocaleString(DateTime.DATE_MED)
     : '';
 });
 
 AuthorSchema.virtual('date_of_death_update').get(function () {
   return this.date_of_death
-    ? moment(this.date_of_death).format('YYYY-MM-DD')
+    ? DateTime.fromJSDate(this.date_of_death).toLocaleString(DateTime.DATE_MED)
     : '';
 });
 
