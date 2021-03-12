@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const { DateTime } = require('luxon');
-// const moment = require('moment');
 
 const Schema = mongoose.Schema;
 
