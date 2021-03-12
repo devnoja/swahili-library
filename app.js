@@ -15,17 +15,25 @@ const app = express();
 
 //Set up mongoose connection
 const mongoose = require('mongoose');
-const dev_db_url =
-  'mongodb+srv://noja:UUnpgydQP2bCtXJ@cluster0-9geny.mongodb.net/local_library?retryWrites=true&w=majority';
+require('dotenv').config();
 
-const mongoDB = process.env.MONGODB_URI || dev_db_url;
+const uri = process.env.ATLAS_URI;
 
 mongoose
-  .connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(uri, {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+  })
   .then(() => console.log(`MongoDB connected successfully!`))
   .catch((err) => console.log(err));
-const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
+const connection = mongoose.connection;
+connection.on(
+  'error',
+  console.error.bind(console, 'MongoDB connection error:')
+);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
